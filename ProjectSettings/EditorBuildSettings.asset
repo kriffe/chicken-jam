@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/CubeLevel.unity
   - enabled: 1
     path: Assets/Scenes/DemoLevel.unity
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelOne.unity
