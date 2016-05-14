@@ -32,8 +32,12 @@ public class chicken_script : MonoBehaviour {
         }
         else
         {
-            Debug.Log("no food left!");
+            //Debug.Log("no food left!");
         }
+
+		transform.rotation.Set (0, transform.rotation.y, 0, transform.rotation.w);
+		//transform.rotation = Quaternion.FromToRotation (transform.rotation.eulerAngles, new Vector3 (0, transform.rotation.y, 0));
+
     }
 
     float getDistance(GameObject food)

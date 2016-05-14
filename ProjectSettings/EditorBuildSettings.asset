@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/MainScene.unity
+    path: Assets/Scenes/MainScene.unity
   - enabled: 1
-    path: Assets/CubeLevel.unity
+    path: Assets/Scenes/CubeLevel.unity
