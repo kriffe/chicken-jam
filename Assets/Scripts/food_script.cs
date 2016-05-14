@@ -8,6 +8,8 @@ public class food_script : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Debug.Log("food script started");
+
+		//GameManager.instance.getChickenCount()
 	}
 
     void OnTriggerEnter(Collider other)
