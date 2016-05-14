@@ -61,7 +61,7 @@ public class chicken_script : MonoBehaviour {
 
     private void rotateChickenToFoodSource(GameObject food)
     {
-        this.transform.LookAt(food.transform);
+        this.transform.LookAt(food.transform.position);
     }
 
     //här ska det implementeras nåt som kollar vilken i listan som har kortast absolutbelopp från kyckling till food

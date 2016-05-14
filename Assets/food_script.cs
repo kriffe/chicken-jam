@@ -11,8 +11,15 @@ public class food_script : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        numberOfChickensInside = numberOfChickensInside + 1;
-        Debug.Log("number of chickens are now: " +  numberOfChickensInside);
+        if(other.tag == "chicken")
+        {
+            numberOfChickensInside = numberOfChickensInside + 1;
+            Debug.Log("number of chickens are now: " + numberOfChickensInside);
+        }
+        else
+        {
+            Debug.Log(other.tag + " entered food");
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -29,6 +36,7 @@ public class food_script : MonoBehaviour {
         }
         else
         {
+            numberOfChickensInside = 0;
             Destroy(gameObject);
             Debug.Log("Out of Time");
         }
