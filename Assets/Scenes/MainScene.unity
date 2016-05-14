@@ -167,12 +167,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5b1fe09fc1e1f04bbdc62fb278d2e32, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &630363405 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11478048, guid: c910a0de883a3774fa3298b44fed842f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1062794939}
-  m_Script: {fileID: 11500000, guid: db6840034548ef84687834cf44ba9231, type: 3}
 --- !u!1 &699404972
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,22 +306,6 @@ Prefab:
     - target: {fileID: 419310, guid: c910a0de883a3774fa3298b44fed842f, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11411758, guid: c910a0de883a3774fa3298b44fed842f, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11432810, guid: c910a0de883a3774fa3298b44fed842f, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 630363405}
-    - target: {fileID: 11432810, guid: c910a0de883a3774fa3298b44fed842f, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: startNextLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 11411758, guid: c910a0de883a3774fa3298b44fed842f, type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: restartLevel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c910a0de883a3774fa3298b44fed842f, type: 2}

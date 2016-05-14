@@ -38,23 +38,19 @@ public class GameManager : MonoBehaviour {
 		currentLevel = currentLevel + 1;
 
 		SceneManager.LoadScene (currentLevel);
-		//initGame ();
+
 		Debug.Log("Loading" + currentLevel);
+		hideAllPopups ();	
 
 	}
 
 	public void restartLevel(){
-		currentLevel = currentLevel + 1;
-
 		SceneManager.LoadScene (currentLevel);
-		//initGame ();
-		Debug.Log("Loading" + currentLevel);
-
+		hideAllPopups ();
 	}
 
 	public void debugFunc1(){
 		Debug.Log ("Debug!");
-
 	}
 
 
@@ -68,7 +64,12 @@ public class GameManager : MonoBehaviour {
 		successMenu.enabled = false;
 	}
 
-
+	public void hideAllPopups(){
+		successMenu.enabled = false;
+		startMenu.enabled = false;
+		failMenu.enabled = false;
+		
+	}
 
 
 	public void ExitGame(){
@@ -98,12 +99,16 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		if(Input.GetKeyUp(KeyCode.Escape))
-		{
-			Debug.Log ("Esc");
-		
-		}	
+
+		//Cheets
+		if (Input.GetKeyUp (KeyCode.Q)) {
+			startMenu.enabled = true;
+		} else if (Input.GetKeyUp (KeyCode.W)) {
+			levelIsCompleted ();
+		}
+		else if (Input.GetKeyUp (KeyCode.E)) {
+			levelHasFailed ();
+		}
 	}
 
 
@@ -115,9 +120,15 @@ public class GameManager : MonoBehaviour {
 		foodCount = foodCount - 1;
 	}
 
+	public void setFoodCount(int value){
+		foodCount = value;
+	}
+
 	public int getFoodCount(){
 		return foodCount;
 	}
+
+
 
 
 }
