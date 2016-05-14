@@ -5,6 +5,7 @@ public class killingScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
         Debug.Log("killingScript started");
 	}
     void OnTriggerEnter(Collider other)
