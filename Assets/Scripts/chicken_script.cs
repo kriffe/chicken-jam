@@ -7,9 +7,6 @@ public class chicken_script : MonoBehaviour {
     public int speed = 5    ;
 	// Use this for initialization
 	void Start () {
-        foods = GameObject.FindGameObjectsWithTag("food");
-
-        closestFood = getClosestFoodSource(foods);
 
     }
     
@@ -66,6 +63,7 @@ public class chicken_script : MonoBehaviour {
     //här ska det implementeras nåt som kollar vilken i listan som har kortast absolutbelopp från kyckling till food
     GameObject getClosestFoodSource(GameObject[] foods)
     {
+        
         GameObject closestFood = foods[0];
         float lastDistance = -1; //-1 för att den är oanvänd
         foreach (GameObject food in foods)
