@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour {
 	//public Canvas pauseMenu;
 	public Canvas failMenu;
 	public Canvas successMenu;
+	public Canvas playerInterface;
+
+	public Text levelText;
+	public Text timeText;
+	public Text foodCountText;
 
 	//public Canvas quickMenu;
 
@@ -19,6 +24,63 @@ public class GameManager : MonoBehaviour {
 	private int currentLevel = 0;
 
 	private int foodCount = 0;
+
+
+
+	private int gameTime = 0;
+	private int gameStartTime = 0;
+
+
+	// Use this for initialization
+	void Start () {
+		startMenu = startMenu.GetComponent<Canvas> ();
+		failMenu = failMenu.GetComponent<Canvas> ();
+		successMenu = successMenu.GetComponent<Canvas> ();
+		playerInterface = playerInterface.GetComponent<Canvas> ();
+
+		levelText = levelText.GetComponent<Text> ();
+		timeText= timeText.GetComponent<Text> ();
+		foodCountText = foodCountText.GetComponent<Text> ();
+
+
+
+		startMenu.enabled = false;
+		failMenu.enabled = false;
+		successMenu.enabled = false;
+		playerInterface.enabled = false;
+
+		gameStartTime = Mathf.RoundToInt (Time.time);
+
+		//quickMenu = quickMenu.GetComponent<Canvas> ();
+	}
+
+	// Update is called once per frame
+	void Update () {
+
+		//Cheets
+		if (Input.GetKeyUp (KeyCode.Q)) {
+			hideAllPopups ();
+			startMenu.enabled = true;
+		} else if (Input.GetKeyUp (KeyCode.W)) {
+			hideAllPopups ();
+			levelIsCompleted ();
+		}
+		else if (Input.GetKeyUp (KeyCode.E)) {
+			hideAllPopups ();
+			levelHasFailed ();
+		}	
+		else if (Input.GetKeyUp (KeyCode.R)) {
+			hideAllPopups ();
+			showPlayerInterface ();
+		}	
+
+		gameTime = Mathf.RoundToInt(Time.time - gameStartTime);
+
+
+		levelText.text = "Level: " + currentLevel.ToString ();
+		timeText.text = "Time: " + gameTime.ToString ();
+		foodCountText.text = "Food: " + foodCount.ToString ();
+	}
 
 	void Awake(){
 		if (instance == null)
@@ -30,9 +92,9 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	void initGame(){
-		SceneManager.LoadScene (1);
-	}
+	//void initGame(){
+	//	SceneManager.LoadScene (1);
+	//
 
 	public void startNextLevel(){
 		currentLevel = currentLevel + 1;
@@ -42,6 +104,7 @@ public class GameManager : MonoBehaviour {
 		Debug.Log("Loading" + currentLevel);
 		hideAllPopups ();	
 
+		showPlayerInterface ();
 	}
 
 	public void restartLevel(){
@@ -71,6 +134,18 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
+	public void showStartMenu(){
+		startMenu.enabled = true;
+	}
+
+	public void showPlayerInterface(){
+		playerInterface.enabled = true;
+	}
+
+	public void hidePlayerInterface(){
+		playerInterface.enabled = false;
+	}
+
 
 	public void ExitGame(){
 		Application.Quit ();
@@ -84,32 +159,6 @@ public class GameManager : MonoBehaviour {
 	}
 		
 
-	// Use this for initialization
-	void Start () {
-		startMenu = startMenu.GetComponent<Canvas> ();
-		failMenu = failMenu.GetComponent<Canvas> ();
-		successMenu = successMenu.GetComponent<Canvas> ();
-
-		startMenu.enabled = false;
-		failMenu.enabled = false;
-		successMenu.enabled = false;
-
-		//quickMenu = quickMenu.GetComponent<Canvas> ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-		//Cheets
-		if (Input.GetKeyUp (KeyCode.Q)) {
-			startMenu.enabled = true;
-		} else if (Input.GetKeyUp (KeyCode.W)) {
-			levelIsCompleted ();
-		}
-		else if (Input.GetKeyUp (KeyCode.E)) {
-			levelHasFailed ();
-		}
-	}
 
 
 	public void increaseFoodCount(){
