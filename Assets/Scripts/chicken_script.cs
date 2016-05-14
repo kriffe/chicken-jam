@@ -4,10 +4,13 @@ using System.Collections;
 public class chicken_script : MonoBehaviour {
     private GameObject[] foods;
     private GameObject closestFood;
-    public int speed = 5    ;
+    public int speed = 5;
+
+
+	private bool isGrabbed;
 	// Use this for initialization
 	void Start () {
-
+		isGrabbed = false;
     }
     
 
@@ -15,7 +18,7 @@ public class chicken_script : MonoBehaviour {
     void Update ()
     {
         foods = GameObject.FindGameObjectsWithTag("food");
-        if(foods.Length> 0)
+		if(foods.Length> 0 && !isGrabbed)
         {
             transform.rotation.Set(0, transform.rotation.y, 0, transform.rotation.w);
             closestFood = getClosestFoodSource(foods);
@@ -29,6 +32,14 @@ public class chicken_script : MonoBehaviour {
 		//transform.rotation = Quaternion.FromToRotation (transform.rotation.eulerAngles, new Vector3 (0, transform.rotation.y, 0));
 
     }
+
+	public bool getIsGrabbed(){
+		return isGrabbed;
+	}
+
+	public void setIsGrabbed(bool grabbed){
+		isGrabbed = grabbed;
+	}
 
     float getDistance(GameObject food)
     {

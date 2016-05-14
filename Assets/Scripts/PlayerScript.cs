@@ -10,6 +10,9 @@ public class PlayerScript : MonoBehaviour {
 	public GameObject foodPrefab; 
 	private int nrOfFoodLeft = 10;
 
+	public LayerMask chickenLayerMask;
+	public LayerMask groundLayerMask;
+
 	private LineRenderer lineRenderer;
 	private int lengthOfLineRenederer = 4;
 
@@ -34,12 +37,16 @@ public class PlayerScript : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 
-			if (Physics.Raycast (ray, out hit, 1000)) {
+			if (Physics.Raycast (ray, out hit, 1000, chickenLayerMask)) {
 
 				if (hit.collider.tag == "chicken" && !isChickenGrabbed) {
 
 					isChickenGrabbed = true;
 					Debug.Log ("Chicken is grabbed");
+					var chickenScript = hit.collider.gameObject.GetComponent<chicken_script> ();
+
+					chickenScript.setIsGrabbed (true);
+
 					grabbedChicken = hit.collider.gameObject.GetComponent<Rigidbody> ();
 				}
 			}
@@ -53,26 +60,16 @@ public class PlayerScript : MonoBehaviour {
 
 		if (isChickenGrabbed) {
 
-			Debug.Log ("Release the chicken!");
-
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			Vector3 dirVector;
 
 			// FIX: add mask to raycast
-			if (Physics.Raycast (ray, out hit, 1000)) {
+			if (Physics.Raycast (ray, out hit, 1000, groundLayerMask) && hit.collider.tag == "ground") {
+				
+				dirVector = grabbedChicken.transform.position - hit.point;
+				grabbedChicken.rotation = Quaternion.LookRotation (new Vector3(dirVector.x, 0, dirVector.z));
 
-				if (hit.collider.tag == "ground") {
-
-					dirVector = grabbedChicken.transform.position - hit.point;
-
-					grabbedChicken.rotation = Quaternion.LookRotation (new Vector3(dirVector.x, 0, dirVector.z));
-
-
-
-				} else {
-					dirVector = new Vector3 (1, 0, 0);
-				}
 			} else {
 				dirVector = new Vector3 (1, 0, 0);
 			}
@@ -82,9 +79,13 @@ public class PlayerScript : MonoBehaviour {
 
 			if (Input.GetButtonUp ("Fire1")) {
 				Debug.Log ("Release the chicken");
+
+				var chickenScript = grabbedChicken.gameObject.GetComponent<chicken_script> ();
+				chickenScript.setIsGrabbed (false);
+
 				isChickenGrabbed = false;
 				grabbedChicken.AddForce ((chickenFlickMultipier * dirMagnitude) * grabbedChicken.transform.forward);
-				grabbedChicken.AddForce ((chickenFlickMultipier * dirMagnitude) * grabbedChicken.transform.up);
+				grabbedChicken.AddForce ((chickenFlickMultipier * dirMagnitude * 2) * grabbedChicken.transform.up);
 			}
 
 			// draw lineRenderer
