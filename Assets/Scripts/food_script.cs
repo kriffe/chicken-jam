@@ -33,14 +33,23 @@ public class food_script : MonoBehaviour {
         }
         else
         {
-            Destroy(gameObject);
 
+            increaseNrOfFoods();
+            GameManager.instance.increaseFoodCount();
             Debug.Log("Out of Time");
+            Destroy(gameObject);
         }
 	}
 
     void updateTimer(int numberOfChickens)
     {
         timer = timer - numberOfChickensInside * Time.deltaTime;
+    }
+
+    void increaseNrOfFoods()
+    {
+
+        PlayerScript playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+        playerScript.increaseNrOfFood();
     }
 }

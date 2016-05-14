@@ -12,7 +12,7 @@ GameObject:
   - 120: {fileID: 12014746}
   m_Layer: 0
   m_Name: PlayerController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,6 +41,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrefab: {fileID: 153804, guid: 5804d8e9a3cf68e4eb4086ce4d7d50ec, type: 2}
+  chickenLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!120 &12014746
 LineRenderer:
   m_ObjectHideFlags: 1
