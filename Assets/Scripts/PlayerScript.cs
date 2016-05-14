@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour {
 	private int chickenFlickMultipier = 100;
 
 	public GameObject foodPrefab; 
-	private int nrOfFoodLeft = 20;
+	private int nrOfFoodLeft = 2;
 
 	public LayerMask chickenLayerMask;
 	public LayerMask groundLayerMask;
@@ -120,7 +120,8 @@ public class PlayerScript : MonoBehaviour {
 
 					Instantiate(foodPrefab, hit.point + new Vector3(0,1,0), Quaternion.identity);
 					nrOfFoodLeft--;
-				}
+                    GameManager.instance.decreaseFoodCount();
+                }
 
 			}
 		}
@@ -130,4 +131,9 @@ public class PlayerScript : MonoBehaviour {
 	public int GetNrOfFood(){
 		return nrOfFoodLeft;
 	}
+
+    public void increaseNrOfFood()
+    {
+        nrOfFoodLeft++;
+    }
 }
