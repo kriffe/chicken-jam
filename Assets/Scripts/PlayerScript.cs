@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour {
 	private int chickenFlickMultipier = 100;
 
 	public GameObject foodPrefab; 
-	private int nrOfFoodLeft = 10;
+	private int nrOfFoodLeft = 20;
 
 	public LayerMask chickenLayerMask;
 	public LayerMask groundLayerMask;
@@ -71,7 +71,7 @@ public class PlayerScript : MonoBehaviour {
 				grabbedChicken.rotation = Quaternion.LookRotation (new Vector3(dirVector.x, 0, dirVector.z));
 
 			} else {
-				dirVector = new Vector3 (1, 0, 0);
+				dirVector = new Vector3 (1, 0, 0); // I hope this does not happen
 			}
 
 
@@ -85,7 +85,7 @@ public class PlayerScript : MonoBehaviour {
 
 				isChickenGrabbed = false;
 				grabbedChicken.AddForce ((chickenFlickMultipier * dirMagnitude) * grabbedChicken.transform.forward);
-				grabbedChicken.AddForce ((chickenFlickMultipier * dirMagnitude * 2) * grabbedChicken.transform.up);
+				grabbedChicken.AddForce ((chickenFlickMultipier * dirMagnitude * 1.5f) * grabbedChicken.transform.up);
 			}
 
 			// draw lineRenderer
