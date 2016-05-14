@@ -11,9 +11,9 @@ GameObject:
   - 33: {fileID: 3349488}
   - 65: {fileID: 6526824}
   - 23: {fileID: 2358302}
-  - 114: {fileID: 11414344}
   - 135: {fileID: 13545500}
   - 54: {fileID: 5461660}
+  - 114: {fileID: 11486594}
   m_Layer: 0
   m_Name: food
   m_TagString: food
@@ -28,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.6, y: 4.54, z: 5.5291963}
+  m_LocalPosition: {x: -8.277478, y: 0.5, z: -29.64658}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +43,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: fd45cb281c271da469b93f98f815b6b5, type: 2}
+  - {fileID: 2100000, guid: 11000679f35b37f4d8bef3e5af6653ae, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -93,7 +93,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11414344
+--- !u!114 &11486594
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 153804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c72d5fce51ea4724e86cac8bda5acb56, type: 3}
+  m_Script: {fileID: 11500000, guid: 721f4ce8183599544812081f6ceee083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 10

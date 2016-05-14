@@ -12,8 +12,8 @@ GameObject:
   - 65: {fileID: 6572540}
   - 23: {fileID: 2358642}
   - 54: {fileID: 5423834}
-  - 114: {fileID: 11437770}
   - 65: {fileID: 6534704}
+  - 114: {fileID: 11449968}
   m_Layer: 0
   m_Name: chicken
   m_TagString: chicken
@@ -43,7 +43,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 04f13baed768b4c46b88c3bf5f974713, type: 2}
+  - {fileID: 2100000, guid: f6fdc3b45adbfd941a5c661ac2d10f56, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -105,7 +105,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11437770
+--- !u!114 &11449968
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 103922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ee1bc4d5bc52214a968a5efef5dcc97, type: 3}
+  m_Script: {fileID: 11500000, guid: 76bc02fb5a4c84b4887ec7dd6c031bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000
