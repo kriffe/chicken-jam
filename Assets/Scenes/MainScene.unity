@@ -224,6 +224,7 @@ GameObject:
   - 124: {fileID: 699404975}
   - 81: {fileID: 699404974}
   - 111: {fileID: 699404978}
+  - 114: {fileID: 699404979}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -312,45 +313,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!1 &1056289525
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1056289527}
-  - 114: {fileID: 1056289526}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1056289526
+--- !u!114 &699404979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1056289525}
+  m_GameObject: {fileID: 699404972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee3eca4c565b454893d1a21daaad31d, type: 3}
+  m_Script: {fileID: 11500000, guid: f72444652add05a42bebd709f89ce10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1056289527
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1056289525}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  gameManager: {fileID: 110802, guid: c910a0de883a3774fa3298b44fed842f, type: 2}
 --- !u!1 &1497120842
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +487,7 @@ RectTransform:
   - {fileID: 1497120843}
   - {fileID: 518655171}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -592,7 +566,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1735564956
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +703,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!95 &1806010000
 Animator:
   serializedVersion: 3
