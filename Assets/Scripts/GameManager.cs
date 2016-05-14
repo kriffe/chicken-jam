@@ -7,13 +7,20 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 
-	public Canvas quickMenu;
 
 
+	public Canvas startMenu;
+	//public Canvas pauseMenu;
+	public Canvas failMenu;
+	public Canvas successMenu;
+
+	//public Canvas quickMenu;
 
 	//public GameObject menu;
 
 	private int currentLevel = 0;
+
+	private int foodCount = 0;
 
 	void Awake(){
 		if (instance == null)
@@ -22,7 +29,6 @@ public class GameManager : MonoBehaviour {
 			Destroy (gameObject);
 
 		DontDestroyOnLoad (gameObject);
-
 
 	}
 
@@ -36,17 +42,35 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene (currentLevel);
 		//initGame ();
 		Debug.Log("Loading" + currentLevel);
-	
 
 	}
 
-	public void hideQuickMenu(){
-		quickMenu.enabled = false;
+	public void restartLevel(){
+		currentLevel = currentLevel + 1;
+
+		SceneManager.LoadScene (currentLevel);
+		//initGame ();
+		Debug.Log("Loading" + currentLevel);
+
 	}
 
-	public void showQuickMenu(){
-		quickMenu.enabled = true;
+	public void debugFunc1(){
+		Debug.Log ("Debug!");
+
 	}
+
+
+	public void levelIsCompleted(){
+		successMenu.enabled = true;
+		failMenu.enabled = false;
+	}
+
+	public void levelHasFailed(){
+		failMenu.enabled = true;
+		successMenu.enabled = false;
+	}
+
+
 
 
 	public void ExitGame(){
@@ -63,18 +87,39 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		quickMenu = quickMenu.GetComponent<Canvas> ();
+		startMenu = startMenu.GetComponent<Canvas> ();
+		failMenu = failMenu.GetComponent<Canvas> ();
+		successMenu = successMenu.GetComponent<Canvas> ();
+
+		startMenu.enabled = false;
+		failMenu.enabled = false;
+		successMenu.enabled = true;
+
+		//quickMenu = quickMenu.GetComponent<Canvas> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		//Listen after Esc
-		if (Input.GetKey(KeyCode.Escape))
+		
+		if(Input.GetKeyUp(KeyCode.Escape))
 		{
 			Debug.Log ("Esc");
-			showQuickMenu ();
-		}
 		
+		}	
 	}
+
+
+	public void increaseFoodCount(){
+		foodCount = foodCount + 1;
+	}
+
+	public void decreaseFoodCount(){
+		foodCount = foodCount - 1;
+	}
+
+	public int getFoodCount(){
+		return foodCount;
+	}
+
+
 }
