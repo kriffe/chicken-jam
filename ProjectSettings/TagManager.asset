@@ -7,7 +7,6 @@ TagManager:
   - food
   - chicken
   - ground
-  - menu
   layers:
   - Default
   - TransparentFX
