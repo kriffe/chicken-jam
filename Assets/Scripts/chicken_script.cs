@@ -17,6 +17,7 @@ public class chicken_script : MonoBehaviour {
         foods = GameObject.FindGameObjectsWithTag("food");
         if(foods.Length> 0)
         {
+            transform.rotation.Set(0, transform.rotation.y, 0, transform.rotation.w);
             closestFood = getClosestFoodSource(foods);
             moveChicken(closestFood, speed);
         }
@@ -25,7 +26,6 @@ public class chicken_script : MonoBehaviour {
             //Debug.Log("no food left!");
         }
 
-		transform.rotation.Set (0, transform.rotation.y, 0, transform.rotation.w);
 		//transform.rotation = Quaternion.FromToRotation (transform.rotation.eulerAngles, new Vector3 (0, transform.rotation.y, 0));
 
     }

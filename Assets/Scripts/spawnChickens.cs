@@ -11,8 +11,7 @@ public class spawnChickens : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-
-		position = this.transform.position;
+       
 
 		//Instantiate(chicken,position, new Quaternion());
 	}
