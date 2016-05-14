@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
-	public LevelManager levelScript;
-	public MenuScript menu;
+
+	public Canvas quickMenu;
+
+
 
 	//public GameObject menu;
 
@@ -38,6 +40,19 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+	public void hideQuickMenu(){
+		quickMenu.enabled = false;
+	}
+
+	public void showQuickMenu(){
+		quickMenu.enabled = true;
+	}
+
+
+	public void ExitGame(){
+		Application.Quit ();
+	}
+
 
 
 	//Get number of chickens in a level
@@ -48,7 +63,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		quickMenu = quickMenu.GetComponent<Canvas> ();
 	}
 	
 	// Update is called once per frame
@@ -58,6 +73,7 @@ public class GameManager : MonoBehaviour {
 		if (Input.GetKey(KeyCode.Escape))
 		{
 			Debug.Log ("Esc");
+			showQuickMenu ();
 		}
 		
 	}
