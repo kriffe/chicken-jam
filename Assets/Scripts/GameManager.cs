@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 
-
-
 	public Canvas startMenu;
 	//public Canvas pauseMenu;
 	public Canvas failMenu;
@@ -93,7 +91,7 @@ public class GameManager : MonoBehaviour {
 
 		startMenu.enabled = false;
 		failMenu.enabled = false;
-		successMenu.enabled = true;
+		successMenu.enabled = false;
 
 		//quickMenu = quickMenu.GetComponent<Canvas> ();
 	}
