@@ -32,6 +32,7 @@ public class food_script : MonoBehaviour {
         else
         {
             Destroy(gameObject);
+
             Debug.Log("Out of Time");
         }
 	}
