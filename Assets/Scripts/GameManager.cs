@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;
 	public LevelManager levelScript;
 
+	public Player player;
 
+	private int currentLevel = 1;
 
 	void Awake(){
 		if (instance == null)
@@ -18,10 +20,17 @@ public class GameManager : MonoBehaviour {
 
 		levelScript = GetComponent<LevelManager>();
 
+		player = GetComponent<Player> ();
+
+		player.setLevel (5);
+
 	}
 
 	void initGame(){
 		levelScript.SetupScene (1);
+		player.setLevel (1);
+
+
 	}
 
 	// Use this for initialization

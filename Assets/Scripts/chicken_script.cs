@@ -4,6 +4,7 @@ using System.Collections;
 public class chicken_script : MonoBehaviour {
     private GameObject[] foods;
     private GameObject closestFood;
+    public int speed = 5    ;
 	// Use this for initialization
 	void Start () {
         foods = GameObject.FindGameObjectsWithTag("food");
@@ -11,15 +12,7 @@ public class chicken_script : MonoBehaviour {
         closestFood = getClosestFoodSource(foods);
 
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        string otherGameObjectTag = other.gameObject.tag;
-        if(otherGameObjectTag  == "food")
-        {
-            Debug.Log("chicken entered food source");
-        }
-    }
+    
 
     // Update is called once per frame
     void Update ()
@@ -28,7 +21,7 @@ public class chicken_script : MonoBehaviour {
         if(foods.Length> 0)
         {
             closestFood = getClosestFoodSource(foods);
-            moveChicken(closestFood, 1);
+            moveChicken(closestFood, speed);
         }
         else
         {
@@ -56,15 +49,21 @@ public class chicken_script : MonoBehaviour {
     public void moveChicken(GameObject food, int speed)
     {
         rotateChickenToFoodSource(food);
-
-        //matens x och z-komponent och hönans y-komponent
-        Vector3 foodGroundPosition = new Vector3(food.transform.position.x, this.transform.position.y, food.transform.position.z);
-        this.transform.position = Vector3.Lerp(this.transform.position, foodGroundPosition, speed * Time.deltaTime);
+        //måste anpassas efter radius på spherecollider på food
+        if(getDistance(food) > 2)
+        {
+            //matens x och z-komponent och hönans y-komponent
+            Vector3 foodGroundPosition = new Vector3(food.transform.position.x, this.transform.position.y, food.transform.position.z);
+            float step = speed * Time.deltaTime;
+            this.transform.position = Vector3.MoveTowards(this.transform.position, foodGroundPosition, step);
+        }
+        //this.transform.position = Vector3.Lerp(this.transform.position, foodGroundPosition, speed * Time.deltaTime);
         
     }
 
     private void rotateChickenToFoodSource(GameObject food)
     {
+        
         this.transform.LookAt(food.transform.position);
     }
 
