@@ -5,7 +5,7 @@ public class chicken_script : MonoBehaviour {
     private GameObject[] foods;
     private GameObject closestFood;
     public int speed = 5;
-
+    public int foodDistanceLimit = 20; //minsta avstånd för att en höna ska springa efter maten
 
 	private bool isGrabbed;
 	// Use this for initialization

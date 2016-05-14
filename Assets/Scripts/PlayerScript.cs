@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour {
 	private int chickenFlickMultipier = 100;
 
 	public GameObject foodPrefab; 
-	private int nrOfFoodLeft = 2;
+	public int nrOfFoodLeft = 4;
 
 	public LayerMask chickenLayerMask;
 	public LayerMask groundLayerMask;
