@@ -2,8 +2,9 @@
 using System.Collections;
 
 public class food_script : MonoBehaviour {
-    private int numberOfChickensInside = 0;
+    public int numberOfChickensInside = 0;
     public float timer;
+    public int radius;
 	// Use this for initialization
 	void Start () {
         Debug.Log("food script started");
@@ -14,18 +15,12 @@ public class food_script : MonoBehaviour {
         if(other.tag == "chicken")
         {
             numberOfChickensInside = numberOfChickensInside + 1;
-            Debug.Log("number of chickens are now: " + numberOfChickensInside);
-        }
-        else
-        {
-            Debug.Log(other.tag + " entered food");
         }
     }
 
     void OnTriggerExit(Collider other)
     {
         numberOfChickensInside = numberOfChickensInside - 1;
-        print("number of chickens are now: " +  numberOfChickensInside);
     }
 
     // Update is called once per frame
@@ -36,7 +31,6 @@ public class food_script : MonoBehaviour {
         }
         else
         {
-            numberOfChickensInside = 0;
             Destroy(gameObject);
             Debug.Log("Out of Time");
         }
