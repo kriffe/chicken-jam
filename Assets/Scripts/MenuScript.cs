@@ -9,8 +9,6 @@ public class MenuScript : MonoBehaviour {
 	public Button exitText;
 
 
-
-
 	// Use this for initialization
 	void Start () {
 		startText = startText.GetComponent<Button> ();
@@ -19,22 +17,13 @@ public class MenuScript : MonoBehaviour {
 
 	 
 	public void StartLevel(){
-		startText.enabled = false;
+		//startText.enabled = false;
+		Debug.Log("Start level");
 		GameManager.instance.startNextLevel ();
 	}
 
 	public void ExitGame(){
 		Application.Quit ();
-	}
-
-	public void hide(){
-		
-		exitText.enabled = false;
-	}
-
-	public void show(){
-		startText.enabled = true;
-		exitText.enabled = true;
 	}
 
 	
