@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour {
 	public GameObject foodPrefab;
 
 	public int foodStartCount = 3;
+	public int chickenWinNumber = 3;
 	private int nrOfFoodLeft;
 
 	public LayerMask chickenLayerMask;
@@ -26,6 +27,7 @@ public class PlayerScript : MonoBehaviour {
 
 		nrOfFoodLeft = foodStartCount;
 		GameManager.instance.setFoodCount (nrOfFoodLeft);
+		GameManager.instance.setChickenWonNumber (chickenWinNumber);
 	}
 
 	// Update is called once per frame

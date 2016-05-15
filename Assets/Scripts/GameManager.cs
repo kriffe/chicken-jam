@@ -14,12 +14,14 @@ public class GameManager : MonoBehaviour {
 	public Canvas playerInterface;
 
 	public Text levelText;
-	public Text timeText;
+	public Text gameMessage;
 	public Text foodCountText;
 	public Text chickensKilledText;
 
 	private int numberOfChickensKilled; //kanske ska vara private sen
 	private int chickenWonNumber;
+
+	private string message;
 
 	//public Canvas quickMenu;
 
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour {
 		playerInterface = playerInterface.GetComponent<Canvas> ();
 
 		levelText = levelText.GetComponent<Text> ();
-		timeText= timeText.GetComponent<Text> ();
+		gameMessage= gameMessage.GetComponent<Text> ();
 		foodCountText = foodCountText.GetComponent<Text> ();
 		chickensKilledText = chickensKilledText.GetComponent<Text> ();
 
@@ -57,6 +59,11 @@ public class GameManager : MonoBehaviour {
 		gameStartTime = Mathf.RoundToInt (Time.time);
 
 		//quickMenu = quickMenu.GetComponent<Canvas> ();
+	}
+
+
+	public void setChickenWonNumber(int value){
+		chickenWonNumber = chickenWonNumber;
 	}
 
 	// Update is called once per frame
@@ -90,10 +97,10 @@ public class GameManager : MonoBehaviour {
 		gameTime = Mathf.RoundToInt(Time.time - gameStartTime);
 
 
-		levelText.text = "Level: " + currentLevel.ToString ();
-		timeText.text = "Time: " + gameTime.ToString ();
-		foodCountText.text = "Food: " + foodCount.ToString ();
-		chickensKilledText.text = "Kills: " + numberOfChickensKilled.ToString ();
+		levelText.text = "Level " + currentLevel.ToString ();
+		gameMessage.text = message;
+		foodCountText.text = foodCount.ToString ();
+		chickensKilledText.text = numberOfChickensKilled.ToString ();
 	}
 
 	void Awake(){
@@ -114,6 +121,10 @@ public class GameManager : MonoBehaviour {
 		} else {
 			return true;
 		}
+	}
+
+	public void setMessage(string msg){
+		message = msg;
 	}
 
 	//void initGame(){
@@ -166,6 +177,7 @@ public class GameManager : MonoBehaviour {
 
 	public void showPlayerInterface(){
 		playerInterface.enabled = true;
+		message = "";
 	}
 
 	public void hidePlayerInterface(){
