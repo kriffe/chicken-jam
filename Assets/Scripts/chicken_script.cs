@@ -17,15 +17,22 @@ public class chicken_script : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+
         foods = GameObject.FindGameObjectsWithTag("food");
-		if(foods.Length> 0 && !isGrabbed)
+
+        if (foods.Length> 0 && !isGrabbed)
         {
-            transform.rotation.Set(0, transform.rotation.y, 0, transform.rotation.w);
             closestFood = getClosestFoodSource(foods);
+            transform.rotation.Set(0, transform.rotation.y, 0, transform.rotation.w);
             moveChicken(closestFood, speed);
         }
-        else
+        //om den inte är grabbad är foods.length < 0 alltså inga foods ute. Hämta målmaten
+        else if(!isGrabbed)
         {
+            closestFood = getFinishFood();
+            transform.rotation.Set(0, transform.rotation.y, 0, transform.rotation.w);
+            moveChicken(closestFood, speed);
+
             //Debug.Log("no food left!");
         }
 
@@ -79,22 +86,31 @@ public class chicken_script : MonoBehaviour {
         this.transform.LookAt(food.transform.position);
     }
 
+    GameObject getFinishFood()
+    {
+        return GameObject.FindGameObjectWithTag("Finish"); 
+    }
+
     //här ska det implementeras nåt som kollar vilken i listan som har kortast absolutbelopp från kyckling till food
     GameObject getClosestFoodSource(GameObject[] foods)
     {
-        
         GameObject closestFood = foods[0];
         float lastDistance = -1; //-1 för att den är oanvänd
         foreach (GameObject food in foods)
         {
             float tempDistance = getDistance(food);
-            
-            if(tempDistance < lastDistance || lastDistance == -1)
+
+            if (tempDistance < lastDistance || lastDistance == -1)
             {
                 closestFood = food;
                 lastDistance = tempDistance;
             }
         }
+        if(getDistance(closestFood) > foodDistanceLimit)
+        {
+            closestFood = getFinishFood();
+        }
+        
         return closestFood;
     }
 }
