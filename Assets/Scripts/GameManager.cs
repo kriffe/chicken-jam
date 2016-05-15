@@ -21,7 +21,10 @@ public class GameManager : MonoBehaviour {
 	private int numberOfChickensKilled; //kanske ska vara private sen
 	private int chickenWonNumber;
 
+
 	private string message;
+
+	private bool gamePaused = false;
 
 	//public Canvas quickMenu;
 
@@ -31,7 +34,7 @@ public class GameManager : MonoBehaviour {
 
 	private int foodCount = 0;
 
-
+	private float startTime = Time.time;
 
 	private int gameTime = 0;
 	private int gameStartTime = 0;
@@ -68,10 +71,11 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (numberOfChickensKilled > chickenWonNumber) {
+		if (numberOfChickensKilled > chickenWonNumber && !gamePaused) {
+			
 			levelHasFailed ();
-		}
-		else if (levelEnded ()) {
+			gamePaused = true;
+		} else if (levelEnded () && !gamePaused) {
 			levelIsCompleted ();
 		}
 
@@ -117,10 +121,12 @@ public class GameManager : MonoBehaviour {
 	bool levelEnded()
 	{
 		GameObject[] chickens = GameObject.FindGameObjectsWithTag ("chicken");
-		if (chickens.Length > 0) {
-			return false;
-		} else {
+		float dt = (Time.time - startTime);
+		Debug.Log (dt);
+		if (chickens.Length == 0 && (dt) > 2) {
 			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -135,17 +141,22 @@ public class GameManager : MonoBehaviour {
 	public void startNextLevel(){
 		numberOfChickensKilled = 0;
 		currentLevel = currentLevel + 1;
-
+		startTime = Time.time;
 		SceneManager.LoadScene (currentLevel);
 
 		Debug.Log("Loading" + currentLevel);
 		hideAllPopups ();	
-
+		gamePaused = false;
 		showPlayerInterface ();
 	}
 
 	public void restartLevel(){
 		numberOfChickensKilled = 0;
+
+
+		startTime = Time.time;
+		Debug.Log (levelEnded ());
+		gamePaused = false;
 		SceneManager.LoadScene (currentLevel);
 		hideAllPopups ();
 	}
@@ -163,6 +174,7 @@ public class GameManager : MonoBehaviour {
 	public void levelHasFailed(){
 		failMenu.enabled = true;
 		successMenu.enabled = false;
+		//numberOfChickensKilled = 0;
 	}
 
 	public void hideAllPopups(){

@@ -41,6 +41,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrefab: {fileID: 153804, guid: 5804d8e9a3cf68e4eb4086ce4d7d50ec, type: 2}
+  foodStartCount: 3
+  chickenWinNumber: 0
+  levelMessage: 
   chickenLayerMask:
     serializedVersion: 2
     m_Bits: 256
