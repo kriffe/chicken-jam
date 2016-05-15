@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour {
 
 
 
-		startMenu.enabled = false;
+		startMenu.enabled = true;
 		failMenu.enabled = false;
 		successMenu.enabled = false;
 		playerInterface.enabled = false;
@@ -68,15 +68,11 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (levelEnded()) {
-			Debug.Log (chickenWonNumber)	;
-			if (numberOfChickensKilled < chickenWonNumber) {
-				Debug.Log ("Complete");
-				levelIsCompleted ();
-			} else {
-				levelHasFailed ();
-			}
-
+		if (numberOfChickensKilled > chickenWonNumber) {
+			levelHasFailed ();
+		}
+		else if (levelEnded ()) {
+			levelIsCompleted ();
 		}
 
 		//Cheets
@@ -87,14 +83,17 @@ public class GameManager : MonoBehaviour {
 			hideAllPopups ();
 			levelIsCompleted ();
 		}
-		else if (Input.GetKeyUp (KeyCode.E)) {
+		else if (Input.GetKeyUp (KeyCode.Escape)) {
 			hideAllPopups ();
 			levelHasFailed ();
 		}	
 		else if (Input.GetKeyUp (KeyCode.R)) {
 			hideAllPopups ();
 			showPlayerInterface ();
-		}	
+		}
+		else if (Input.GetKeyUp (KeyCode.H)) {
+			hideAllPopups ();
+		}
 
 		gameTime = Mathf.RoundToInt(Time.time - gameStartTime);
 
@@ -102,7 +101,7 @@ public class GameManager : MonoBehaviour {
 		levelText.text = "Level " + currentLevel.ToString ();
 		gameMessage.text = message;
 		foodCountText.text = foodCount.ToString ();
-		chickensKilledText.text = numberOfChickensKilled.ToString ();
+		chickensKilledText.text = (chickenWonNumber + 1 - numberOfChickensKilled).ToString ();
 	}
 
 	void Awake(){

@@ -307,6 +307,10 @@ Prefab:
       propertyPath: foodStartCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11403368, guid: d6d4b382eab048848b89c1ef204a15bb, type: 2}
+      propertyPath: chickenWinNumber
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6d4b382eab048848b89c1ef204a15bb, type: 2}
   m_IsPrefabParent: 0

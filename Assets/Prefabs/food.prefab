@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfChickensInside: 0
-  timer: 6
+  timer: 3
   radius: 0
 --- !u!135 &13545500
 SphereCollider:

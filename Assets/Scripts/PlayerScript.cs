@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour {
 	public int chickenWinNumber = 3;
 	private int nrOfFoodLeft;
 
+	public string levelMessage;
+
 	public LayerMask chickenLayerMask;
 	public LayerMask groundLayerMask;
 
@@ -28,6 +30,7 @@ public class PlayerScript : MonoBehaviour {
 		nrOfFoodLeft = foodStartCount;
 		GameManager.instance.setFoodCount (nrOfFoodLeft);
 		GameManager.instance.setChickenWonNumber (chickenWinNumber);
+		GameManager.instance.setMessage (levelMessage);
 	}
 
 	// Update is called once per frame
