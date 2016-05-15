@@ -10,13 +10,17 @@ public class killingScript : MonoBehaviour {
 	}
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "chicken")
+		if (other.tag == "chicken")
         {
             Destroy(other.gameObject);
             Debug.Log("chicken killed");
 
-			GameManager.instance.increaseChickenKilledCount();
+			if (this.tag != "Finish") {
+				GameManager.instance.increaseChickenKilledCount();
+			}
+		
         }
+
 
 
     }
