@@ -269,7 +269,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 402738, guid: d6d4b382eab048848b89c1ef204a15bb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 402738, guid: d6d4b382eab048848b89c1ef204a15bb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -310,6 +310,10 @@ Prefab:
     - target: {fileID: 11403368, guid: d6d4b382eab048848b89c1ef204a15bb, type: 2}
       propertyPath: chickenWinNumber
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403368, guid: d6d4b382eab048848b89c1ef204a15bb, type: 2}
+      propertyPath: levelMessage
+      value: 'No food.. Left Click and drag to Flick a Chick! '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6d4b382eab048848b89c1ef204a15bb, type: 2}

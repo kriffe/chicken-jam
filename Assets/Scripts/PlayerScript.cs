@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		lineRenderer = GetComponent<LineRenderer> ();
-		lineRenderer.SetWidth (0.8f, 0.8f);
+		lineRenderer.SetWidth (3f, 3f);
 		lineRenderer.SetVertexCount (lengthOfLineRenederer);
 
 		nrOfFoodLeft = foodStartCount;
@@ -104,10 +104,10 @@ public class PlayerScript : MonoBehaviour {
 			lineRenderer.material = new Material (Shader.Find ("Particles/Additive"));
 			lineRenderer.SetColors (c1, c1);
 
-			lineRenderer.SetPosition (0, grabbedChicken.transform.position);
-			lineRenderer.SetPosition (1, grabbedChicken.transform.position);
-			lineRenderer.SetPosition (2, hit.point);
-			lineRenderer.SetPosition (3, hit.point);
+			lineRenderer.SetPosition (0, grabbedChicken.transform.position + new Vector3(0,1f,0));
+			lineRenderer.SetPosition (1, grabbedChicken.transform.position+ new Vector3(0,1f,0));
+			lineRenderer.SetPosition (2, hit.point+ new Vector3(0,1f,0));
+			lineRenderer.SetPosition (3, hit.point+ new Vector3(0,1f,0));
 
 
 			//lineRenderer.SetColors(
