@@ -4,8 +4,10 @@ using System.Collections;
 public class chicken_script : MonoBehaviour {
     private GameObject[] foods;
     private GameObject closestFood;
-    public int speed = 5;
-    public int foodDistanceLimit = 5; //minsta avstånd för att en höna ska springa efter maten
+    public int noFoodSpeed;
+	public int foodSpeed;
+	public int foodDistanceLimit = 5; //minsta avstånd för att en höna ska springa efter maten
+	private int speed = 5;
 
 	private bool isGrabbed;
 	// Use this for initialization
@@ -35,6 +37,11 @@ public class chicken_script : MonoBehaviour {
 
             //Debug.Log("no food left!");
         }
+		if (closestFood.tag == "food") {
+			speed = foodSpeed; //onödigt att alltid ha med?
+		} else if (closestFood.tag == "Finish") {
+			speed = noFoodSpeed;
+		}
 
 		//transform.rotation = Quaternion.FromToRotation (transform.rotation.eulerAngles, new Vector3 (0, transform.rotation.y, 0));
 
@@ -62,11 +69,8 @@ public class chicken_script : MonoBehaviour {
     }
 
     public void moveChicken(GameObject food, int speed)
-    {
-        if(getDistance(food) < foodDistanceLimit)
-        {
-            rotateChickenToFoodSource(food);
-        }
+	{
+		rotateChickenToFoodSource(food);
         
         //måste anpassas efter radius på spherecollider på food
         if(getDistance(food) > 2)
@@ -90,6 +94,22 @@ public class chicken_script : MonoBehaviour {
     {
         return GameObject.FindGameObjectWithTag("Finish"); 
     }
+
+	public void Kill(){
+
+		var particleSystem = GetComponentInChildren<ParticleSystem> ();
+		//var mesh = GetComponent<MeshRenderer> ();
+		var sphereCollider = GetComponent<SphereCollider> ();
+
+		//mesh.enabled = false;
+		sphereCollider.enabled = false;
+
+		particleSystem.Play ();
+
+		Destroy (gameObject, 0.5f);
+
+
+	}
 
     //här ska det implementeras nåt som kollar vilken i listan som har kortast absolutbelopp från kyckling till food
     GameObject getClosestFoodSource(GameObject[] foods)

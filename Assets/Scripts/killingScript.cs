@@ -12,7 +12,14 @@ public class killingScript : MonoBehaviour {
     {
 		if (other.tag == "chicken")
         {
-            Destroy(other.gameObject);
+            
+			var chickenScript = other.gameObject.GetComponent<chicken_script> ();
+
+			chickenScript.Kill ();
+			//Destroy(other.gameObject);
+
+
+
             Debug.Log("chicken killed");
 
 			if (this.tag != "Finish") {

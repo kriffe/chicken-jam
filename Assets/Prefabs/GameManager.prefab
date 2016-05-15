@@ -1227,6 +1227,8 @@ MonoBehaviour:
   levelText: {fileID: 11409770}
   timeText: {fileID: 11493952}
   foodCountText: {fileID: 11493068}
+  numberOfChickensKilled: 0
+  chickenWonNumber: 1
 --- !u!114 &11488934
 MonoBehaviour:
   m_ObjectHideFlags: 1

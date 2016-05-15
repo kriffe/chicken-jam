@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 	public Text foodCountText;
 
 	public int numberOfChickensKilled; //kanske ska vara private sen
+	public int chickenWonNumber;
 
 	//public Canvas quickMenu;
 
@@ -59,7 +60,12 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (gameWon()) {
-			levelIsCompleted ();
+			if (numberOfChickensKilled < chickenWonNumber) {
+				levelIsCompleted ();
+			} else {
+				levelHasFailed ();
+			}
+
 		}
 
 		//Cheets
