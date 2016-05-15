@@ -14,7 +14,11 @@ public class killingScript : MonoBehaviour {
         {
             Destroy(other.gameObject);
             Debug.Log("chicken killed");
+
+			GameManager.instance.increaseChickenKilledCount();
         }
+
+
     }
     // Update is called once per frame
     void Update () {

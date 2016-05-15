@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
 	public Text timeText;
 	public Text foodCountText;
 
+	public int numberOfChickensKilled; //kanske ska vara private sen
+
 	//public Canvas quickMenu;
 
 	//public GameObject menu;
@@ -56,6 +58,9 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (gameWon()) {
+			levelIsCompleted ();
+		}
 
 		//Cheets
 		if (Input.GetKeyUp (KeyCode.Q)) {
@@ -92,11 +97,22 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+	bool gameWon()
+	{
+		GameObject[] chickens = GameObject.FindGameObjectsWithTag ("chicken");
+		if (chickens.Length > 0) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	//void initGame(){
 	//	SceneManager.LoadScene (1);
 	//
 
 	public void startNextLevel(){
+		numberOfChickensKilled = 0;
 		currentLevel = currentLevel + 1;
 
 		SceneManager.LoadScene (currentLevel);
@@ -108,6 +124,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void restartLevel(){
+		numberOfChickensKilled = 0;
 		SceneManager.LoadScene (currentLevel);
 		hideAllPopups ();
 	}
@@ -177,7 +194,10 @@ public class GameManager : MonoBehaviour {
 		return foodCount;
 	}
 
-
+	public void increaseChickenKilledCount()
+	{
+		numberOfChickensKilled++;
+	}
 
 
 }
