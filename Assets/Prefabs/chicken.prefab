@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 484400}
   - 33: {fileID: 3321896}
-  - 65: {fileID: 6572540}
   - 54: {fileID: 5423834}
   - 114: {fileID: 11449968}
   - 135: {fileID: 13515664}
@@ -264,7 +263,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -74.2, y: 2.2620368e-18, z: -10.187308}
+  m_LocalPosition: {x: -115.4, y: 22.28673, z: -21.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 441784}
@@ -491,18 +490,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &6572540
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103922}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9541056
 Animator:
   serializedVersion: 3
@@ -544,8 +531,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.1151886
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Radius: 1.6818085
+  m_Center: {x: 0, y: 1.96, z: 0}
 --- !u!198 &19824212
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -553,7 +540,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120864}
   serializedVersion: 2
-  lengthInSec: 0.3
+  lengthInSec: 0.2
   startDelay:
     scalar: 0.2
     maxCurve:
@@ -625,7 +612,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 8.761439
+      scalar: 20.869543
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -844,15 +831,15 @@ ParticleSystem:
         m_RotationOrder: 0
       minMaxState: 3
     randomizeRotationDirection: 0
-    gravityModifier: 0.5
+    gravityModifier: 1
     maxNumParticles: 1000
     rotation3D: 1
   ShapeModule:
     serializedVersion: 2
     enabled: 1
     type: 4
-    radius: 0.6328163
-    angle: 20.753258
+    radius: 0.8562088
+    angle: 42.797356
     length: 5
     boxX: 1
     boxY: 1
@@ -872,7 +859,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 100
+      scalar: 200
       maxCurve:
         serializedVersion: 2
         m_Curve:
