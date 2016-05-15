@@ -63,13 +63,15 @@ public class GameManager : MonoBehaviour {
 
 
 	public void setChickenWonNumber(int value){
-		chickenWonNumber = chickenWonNumber;
+		chickenWonNumber = value;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (levelEnded()) {
+			Debug.Log (chickenWonNumber)	;
 			if (numberOfChickensKilled < chickenWonNumber) {
+				Debug.Log ("Complete");
 				levelIsCompleted ();
 			} else {
 				levelHasFailed ();

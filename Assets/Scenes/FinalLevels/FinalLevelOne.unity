@@ -94,7 +94,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 484400, guid: d4e7c6d50211fa5428af9c59cd1da3b4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -115.4
+      value: -117.1
       objectReference: {fileID: 0}
     - target: {fileID: 484400, guid: d4e7c6d50211fa5428af9c59cd1da3b4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -294,6 +294,10 @@ Prefab:
     - target: {fileID: 11403368, guid: d6d4b382eab048848b89c1ef204a15bb, type: 2}
       propertyPath: groundLayerMask.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403368, guid: d6d4b382eab048848b89c1ef204a15bb, type: 2}
+      propertyPath: chickenWinNumber
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6d4b382eab048848b89c1ef204a15bb, type: 2}

@@ -11,9 +11,17 @@ EditorBuildSettings:
     path: Assets/Scenes/chickenScene.unity
   - enabled: 0
     path: Assets/Scenes/CubeLevel.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DemoLevel.unity
   - enabled: 0
     path: Assets/Scenes/Levels/LevelOne.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Levels/levelAxel2.unity
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/FinalLevelOne.unity
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/FinalLevelTwo.unity
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/FinalLevelThree.unity
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/FinalLevelFour.unity
