@@ -25,23 +25,32 @@ public class chicken_script : MonoBehaviour {
         if (foods.Length> 0 && !isGrabbed)
         {
             closestFood = getClosestFoodSource(foods);
-            transform.rotation.Set(0, transform.rotation.y, 0, transform.rotation.w);
-            moveChicken(closestFood, speed);
+
+			if (closestFood != null) {
+				transform.rotation.Set (0, transform.rotation.y, 0, transform.rotation.w);
+				moveChicken (closestFood, speed);
+			}
         }
         //om den inte är grabbad är foods.length < 0 alltså inga foods ute. Hämta målmaten
-        else if(!isGrabbed)
+		else if(!isGrabbed)
         {
             closestFood = getFinishFood();
-            transform.rotation.Set(0, transform.rotation.y, 0, transform.rotation.w);
-            moveChicken(closestFood, speed);
+			if (closestFood != null) {
+				transform.rotation.Set (0, transform.rotation.y, 0, transform.rotation.w);
+				moveChicken (closestFood, speed);
+			}
 
             //Debug.Log("no food left!");
         }
-		if (closestFood.tag == "food") {
-			speed = foodSpeed; //onödigt att alltid ha med?
-		} else if (closestFood.tag == "Finish") {
-			speed = noFoodSpeed;
+
+		if (closestFood != null) {
+			if (closestFood.tag == "food") {
+				speed = foodSpeed; //onödigt att alltid ha med?
+			} else if (closestFood.tag == "Finish") {
+				speed = noFoodSpeed;
+			}
 		}
+
 
 		//transform.rotation = Quaternion.FromToRotation (transform.rotation.eulerAngles, new Vector3 (0, transform.rotation.y, 0));
 

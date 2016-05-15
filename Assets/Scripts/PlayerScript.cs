@@ -7,8 +7,10 @@ public class PlayerScript : MonoBehaviour {
 	private Rigidbody grabbedChicken;
 	private int chickenFlickMultipier = 100;
 
-	public GameObject foodPrefab; 
-	public int nrOfFoodLeft = 4;
+	public GameObject foodPrefab;
+
+	public int foodStartCount = 3;
+	private int nrOfFoodLeft;
 
 	public LayerMask chickenLayerMask;
 	public LayerMask groundLayerMask;
@@ -21,6 +23,9 @@ public class PlayerScript : MonoBehaviour {
 		lineRenderer = GetComponent<LineRenderer> ();
 		lineRenderer.SetWidth (0.8f, 0.8f);
 		lineRenderer.SetVertexCount (lengthOfLineRenederer);
+
+		nrOfFoodLeft = foodStartCount;
+		GameManager.instance.setFoodCount (nrOfFoodLeft);
 	}
 
 	// Update is called once per frame
@@ -28,7 +33,7 @@ public class PlayerScript : MonoBehaviour {
 		
 		HandleChickenFlick ();
 		HandleFoodSpawn ();
-
+		GameManager.instance.setFoodCount (nrOfFoodLeft);
 	}
 		
 	private void HandleChickenFlick(){

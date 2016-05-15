@@ -16,9 +16,10 @@ public class GameManager : MonoBehaviour {
 	public Text levelText;
 	public Text timeText;
 	public Text foodCountText;
+	public Text chickensKilledText;
 
-	public int numberOfChickensKilled; //kanske ska vara private sen
-	public int chickenWonNumber;
+	private int numberOfChickensKilled; //kanske ska vara private sen
+	private int chickenWonNumber;
 
 	//public Canvas quickMenu;
 
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour {
 		levelText = levelText.GetComponent<Text> ();
 		timeText= timeText.GetComponent<Text> ();
 		foodCountText = foodCountText.GetComponent<Text> ();
+		chickensKilledText = chickensKilledText.GetComponent<Text> ();
 
 
 
@@ -59,7 +61,7 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (gameWon()) {
+		if (levelEnded()) {
 			if (numberOfChickensKilled < chickenWonNumber) {
 				levelIsCompleted ();
 			} else {
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour {
 		levelText.text = "Level: " + currentLevel.ToString ();
 		timeText.text = "Time: " + gameTime.ToString ();
 		foodCountText.text = "Food: " + foodCount.ToString ();
+		chickensKilledText.text = "Kills: " + numberOfChickensKilled.ToString ();
 	}
 
 	void Awake(){
@@ -103,7 +106,7 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	bool gameWon()
+	bool levelEnded()
 	{
 		GameObject[] chickens = GameObject.FindGameObjectsWithTag ("chicken");
 		if (chickens.Length > 0) {
