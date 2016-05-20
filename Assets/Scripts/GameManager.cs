@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	//public Canvas pauseMenu;
 	public Canvas failMenu;
 	public Canvas successMenu;
+	public Canvas endMenu;
 	public Canvas playerInterface;
 
 	public Text levelText;
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour {
 		startMenu.enabled = true;
 		failMenu.enabled = false;
 		successMenu.enabled = false;
+		endMenu.enabled = false;
 		playerInterface.enabled = false;
 
 		gameStartTime = Mathf.RoundToInt (Time.time);
@@ -155,10 +157,16 @@ public class GameManager : MonoBehaviour {
 
 
 		startTime = Time.time;
-		Debug.Log (levelEnded ());
+
 		gamePaused = false;
 		SceneManager.LoadScene (currentLevel);
 		hideAllPopups ();
+	}
+
+	public void restartGame(){
+		currentLevel = 0;
+		startNextLevel ();
+
 	}
 
 	public void debugFunc1(){
@@ -167,13 +175,18 @@ public class GameManager : MonoBehaviour {
 
 
 	public void levelIsCompleted(){
-		successMenu.enabled = true;
+		if (currentLevel == 4) {	//End of level
+			endMenu.enabled = true;
+		} else {
+			successMenu.enabled = true;
+		}
 		failMenu.enabled = false;
 	}
 
 	public void levelHasFailed(){
 		failMenu.enabled = true;
 		successMenu.enabled = false;
+		endMenu.enabled = false;
 		//numberOfChickensKilled = 0;
 	}
 
@@ -181,6 +194,7 @@ public class GameManager : MonoBehaviour {
 		successMenu.enabled = false;
 		startMenu.enabled = false;
 		failMenu.enabled = false;
+		endMenu.enabled = false;
 		
 	}
 
